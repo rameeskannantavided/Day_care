@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - BabyCare</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            background-color: #FF66B2; /* Pink background color */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            width: 100%;
+            margin: 0 20px;
+        }
+
+        .left-side {
+            flex: 1;
+            padding: 40px;
+            display: flex; /* Use flexbox for centering */
+            flex-direction: column; /* Stack child elements vertically */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            background-color: #FF66B2; /* Pink background color */
+            color: #fff;
+            border-radius: 10px 0 0 10px;
+        }
+
+        .left-side h1 {
+            font-size: 48px; /* Increased font size */
+            margin-bottom: 20px;
+            font-weight: 700;
+            font-family: 'Helvetica', sans-serif;/* Bold font weight */
+        }
+
+        .left-side p {
+            font-size: 18px;
+        }
+
+        .right-side {
+            flex: 1;
+            padding: 40px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .right-side h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .right-side form input[type="text"],
+        .right-side form input[type="email"],
+        .right-side form input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .right-side form input[type="submit"] {
+            background-color: #FF66B2; /* Pink background color */
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+         .right-side form input[type="submit"] {
+    background-color: #FF3385; /* Set the button background color */
+    color: #FFFFFF; /* Set the button text color */
+    border: none; /* Remove the button border */
+    padding: 10px 20px; /* Add padding to the button */
+    cursor: pointer; /* Add a pointer cursor to indicate it's clickable */
+}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <h1>Welcome to BabyCare</h1>
+            <p>We care for your precious little ones!</p>
+        </div>
+        <div class="right-side">
+            <h2>Registration</h2>
+            <form action="register" method="post">
+                   {% csrf_token %}
+                <input type="text" name="username" placeholder="Your Name">
+                <input type="text" name="first_name" placeholder="First Name">
+                <input type="text" name="last_name" placeholder="Last Name">
+                <input type="email" name="email" placeholder="Email">
+                <input type="password" name="password" placeholder="Password">
+                <input type="password" name="password2" placeholder="Confirm Password">
+                <input type="submit" value="Register">
+            </form>
+            {% for msg in messages %}
+            <p class="message">{{msg}}</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
